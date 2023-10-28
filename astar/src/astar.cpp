@@ -121,7 +121,7 @@ static int astar_get_at(lua_State *L)
 {
     int x = luaL_checkint(L, 1);
     int y = luaL_checkint(L, 2);
-    int ret = map.WorldAt(x, y);
+    int ret = map.WorldAt(x - 1, y - 1);
 
     lua_pushinteger(L, ret);
     return 1;
@@ -132,7 +132,7 @@ static int astar_set_at(lua_State *L)
     int x = luaL_checkint(L, 1);
     int y = luaL_checkint(L, 2);
     int value = luaL_checkint(L, 3);
-    map.SetToWorldAt(x, y, value);
+    map.SetToWorldAt(x - 1, y - 1, value);
     return 0;
 }
 
